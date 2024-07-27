@@ -1,18 +1,7 @@
 import React, { useState } from "react";
+import APP from ".src//App";
 import type { RadioChangeEvent } from "antd";
 import { Radio } from "antd";
-
-const plainOptions = ["Apple", "Pear", "Orange"];
-const options = [
-  { label: "Apple", value: "Apple" },
-  { label: "Pear", value: "Pear" },
-  { label: "Orange", value: "Orange", title: "Orange" },
-];
-const optionsWithDisabled = [
-  { label: "Apple", value: "Apple" },
-  { label: "Pear", value: "Pear" },
-  { label: "Orange", value: "Orange", disabled: true },
-];
 
 export const RadioComponent: React.FC = () => {
   const [value1, setValue1] = useState("Apple");
@@ -42,17 +31,29 @@ export const RadioComponent: React.FC = () => {
 
   return (
     <>
-      <Radio.Group options={plainOptions} onChange={onChange1} value={value1} />
+      <Radio.Group
+        options={["Apple", "Pear", "Orange"]}
+        onChange={onChange1}
+        value={value1}
+      />
       <br />
       <Radio.Group
-        options={optionsWithDisabled}
+        options={[
+          { label: "Apple", value: "Apple" },
+          { label: "Pear", value: "Pear" },
+          { label: "Orange", value: "Orange", disabled: true },
+        ]}
         onChange={onChange2}
         value={value2}
       />
       <br />
       <br />
       <Radio.Group
-        options={options}
+        options={[
+          { label: "Apple", value: "Apple" },
+          { label: "Pear", value: "Pear" },
+          { label: "Orange", value: "Orange", title: "Orange" },
+        ]}
         onChange={onChange3}
         value={value3}
         optionType="button"
@@ -60,7 +61,11 @@ export const RadioComponent: React.FC = () => {
       <br />
       <br />
       <Radio.Group
-        options={optionsWithDisabled}
+        options={[
+          { label: "Apple", value: "Apple" },
+          { label: "Pear", value: "Pear" },
+          { label: "Orange", value: "Orange", disabled: true },
+        ]}
         onChange={onChange4}
         value={value4}
         optionType="button"
