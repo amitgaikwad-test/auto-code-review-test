@@ -1,5 +1,5 @@
-import React from 'react'
-import { InboxOutlined, UploadOutlined } from '@ant-design/icons'
+import React from "react";
+import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
 import {
   Button,
   Checkbox,
@@ -15,7 +15,8 @@ import {
   Space,
   Switch,
   Upload,
-} from 'antd'
+} from "antd";
+import Mentions from "./Mentions";
 
 const { Option } = Select;
 
@@ -25,7 +26,7 @@ const formItemLayout = {
 };
 
 const normFile = (e) => {
-  console.log('Upload event:', e);
+  console.log("Upload event:", e);
   if (Array.isArray(e)) {
     return e;
   }
@@ -33,21 +34,21 @@ const normFile = (e) => {
 };
 
 const onFinish = (values) => {
-  console.log('Received values of form: ', values);
+  console.log("Received values of form: ", values);
 };
 
-const App = () => (
+const DetailsForm = () => (
   <Form
     name="validate_other"
     {...formItemLayout}
     onFinish={onFinish}
     initialValues={{
-      'input-number': 3,
-      'checkbox-group': ['A', 'B'],
+      "input-number": 3,
+      "checkbox-group": ["A", "B"],
       rate: 3.5,
-      'color-picker': null,
+      "color-picker": null,
     }}
-    style={{ maxWidth: '600px' }}
+    style={{ maxWidth: "600px" }}
   >
     <Form.Item label="Plain Text">
       <span className="ant-form-text">China</span>
@@ -56,7 +57,7 @@ const App = () => (
       name="select"
       label="Select"
       hasFeedback
-      rules={[{ required: true, message: 'Please select your country!' }]}
+      rules={[{ required: true, message: "Please select your country!" }]}
     >
       <Select placeholder="Please select a country">
         <Option value="china">China</Option>
@@ -67,7 +68,13 @@ const App = () => (
     <Form.Item
       name="select-multiple"
       label="Select[multiple]"
-      rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+      rules={[
+        {
+          required: true,
+          message: "Please select your favourite colors!",
+          type: "array",
+        },
+      ]}
     >
       <Select mode="multiple" placeholder="Please select favourite colors">
         <Option value="red">Red</Option>
@@ -80,7 +87,7 @@ const App = () => (
       <Form.Item name="input-number" noStyle>
         <InputNumber min={1} max={10} />
       </Form.Item>
-      <span className="ant-form-text" style={{ marginInlineStart: '8px' }}>
+      <span className="ant-form-text" style={{ marginInlineStart: "8px" }}>
         machines
       </span>
     </Form.Item>
@@ -92,12 +99,12 @@ const App = () => (
     <Form.Item name="slider" label="Slider">
       <Slider
         marks={{
-          0: 'A',
-          20: 'B',
-          40: 'C',
-          60: 'D',
-          80: 'E',
-          100: 'F',
+          0: "A",
+          20: "B",
+          40: "C",
+          60: "D",
+          80: "E",
+          100: "F",
         }}
       />
     </Form.Item>
@@ -113,7 +120,7 @@ const App = () => (
     <Form.Item
       name="radio-button"
       label="Radio.Button"
-      rules={[{ required: true, message: 'Please pick an item!' }]}
+      rules={[{ required: true, message: "Please pick an item!" }]}
     >
       <Radio.Group>
         <Radio.Button value="a">item 1</Radio.Button>
@@ -126,32 +133,32 @@ const App = () => (
       <Checkbox.Group>
         <Row>
           <Col span={8}>
-            <Checkbox value="A" style={{ lineHeight: '32px' }}>
+            <Checkbox value="A" style={{ lineHeight: "32px" }}>
               A
             </Checkbox>
           </Col>
           <Col span={8}>
-            <Checkbox value="B" style={{ lineHeight: '32px' }} disabled>
+            <Checkbox value="B" style={{ lineHeight: "32px" }} disabled>
               B
             </Checkbox>
           </Col>
           <Col span={8}>
-            <Checkbox value="C" style={{ lineHeight: '32px' }}>
+            <Checkbox value="C" style={{ lineHeight: "32px" }}>
               C
             </Checkbox>
           </Col>
           <Col span={8}>
-            <Checkbox value="D" style={{ lineHeight: '32px' }}>
+            <Checkbox value="D" style={{ lineHeight: "32px" }}>
               D
             </Checkbox>
           </Col>
           <Col span={8}>
-            <Checkbox value="E" style={{ lineHeight: '32px' }}>
+            <Checkbox value="E" style={{ lineHeight: "32px" }}>
               E
             </Checkbox>
           </Col>
           <Col span={8}>
-            <Checkbox value="F" style={{ lineHeight: '32px' }}>
+            <Checkbox value="F" style={{ lineHeight: "32px" }}>
               F
             </Checkbox>
           </Col>
@@ -175,20 +182,29 @@ const App = () => (
       </Upload>
     </Form.Item>
     <Form.Item label="Dragger">
-      <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+      <Form.Item
+        name="dragger"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+        noStyle
+      >
         <Upload.Dragger name="files" action="/upload.do">
           <p className="ant-upload-drag-icon">
             <InboxOutlined />
           </p>
-          <p className="ant-upload-text">Click or drag file to this area to upload</p>
-          <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+          <p className="ant-upload-text">
+            Click or drag file to this area to upload
+          </p>
+          <p className="ant-upload-hint">
+            Support for a single or bulk upload.
+          </p>
         </Upload.Dragger>
       </Form.Item>
     </Form.Item>
     <Form.Item
       name="color-picker"
       label="ColorPicker"
-      rules={[{ required: true, message: 'color is required!' }]}
+      rules={[{ required: true, message: "color is required!" }]}
     >
       <ColorPicker />
     </Form.Item>
@@ -201,7 +217,8 @@ const App = () => (
         <Button htmlType="reset">reset</Button>
       </Space>
     </Form.Item>
+    <Mentions />
   </Form>
 );
 
-export default App
+export default DetailsForm;

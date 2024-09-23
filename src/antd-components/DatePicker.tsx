@@ -14,7 +14,7 @@ const defaultValue = [
   dayjs("2000-01-05"),
 ];
 
-const App = () => (
+const DatePicker = () => (
   <Flex vertical gap={10}>
     <DatePicker
       multiple
@@ -40,4 +40,4 @@ const App = () => (
   </Flex>
 );
 
-export default App;
+export default DatePicker;

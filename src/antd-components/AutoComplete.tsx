@@ -2,7 +2,7 @@ import React from "react";
 import { AutoComplete } from "antd";
 import type { AutoCompleteProps } from "antd";
 
-const App: React.FC = (props) => {
+const AutoComplete: React.FC = (props) => {
   const [options, setOptions] = React.useState<AutoCompleteProps["options"]>(
     []
   );
@@ -40,4 +40,4 @@ const App: React.FC = (props) => {
   );
 };
 
-export default App;
+export default AutoComplete;

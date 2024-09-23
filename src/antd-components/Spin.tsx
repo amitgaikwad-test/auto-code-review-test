@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Spin, Switch } from 'antd'
 
-const App = () => {
+const Spin = () => {
   const [auto, setAuto] = React.useState(false)
   const [percent, setPercent] = React.useState(-50)
   const timerRef = React.useRef()
@@ -36,4 +36,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Spin

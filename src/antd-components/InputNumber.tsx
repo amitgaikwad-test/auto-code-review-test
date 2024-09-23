@@ -16,6 +16,7 @@ import {
   Switch,
   Upload,
 } from 'antd'
+import TimePicker from './TimePicker';
 
 const { Option } = Select;
 
@@ -36,7 +37,7 @@ const onFinish = (values) => {
   console.log('Received values of form: ', values);
 };
 
-const App = () => (
+const InputNumber = () => (
   <Form
     name="validate_other"
     {...formItemLayout}
@@ -201,7 +202,9 @@ const App = () => (
         <Button htmlType="reset">reset</Button>
       </Space>
     </Form.Item>
+    <TimePicker/>
+    
   </Form>
 );
 
-export default App
+export default InputNumber

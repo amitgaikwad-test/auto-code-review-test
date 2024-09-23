@@ -198,7 +198,7 @@ const Page = () => {
   )
 }
 
-const App = () => {
+const Global = () => {
   const [locale, setLocal] = useState(enUS)
 
   const changeLocale = (e) => {
@@ -231,4 +231,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Global

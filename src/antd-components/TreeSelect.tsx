@@ -41,7 +41,7 @@ const treeData = [
   },
 ]
 
-const App = () => {
+const TreeSelect = () => {
   const [treeLine, setTreeLine] = useState(true)
   const [showLeafIcon, setShowLeafIcon] = useState(false)
   const [showIcon, setShowIcon] = useState(false)
@@ -77,4 +77,4 @@ const App = () => {
   )
 }
 
-export default App
+export default TreeSelect
